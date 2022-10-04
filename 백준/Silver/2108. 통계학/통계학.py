@@ -12,7 +12,9 @@ else:
 arr.sort()
 
 print(arr[N//2])
-
+# if N%2==1:
+# else:
+#     print(arr[N//2]+arr[N//2-1])
 ind=[0]*8001
 li=[]
 # print('000')
@@ -23,18 +25,12 @@ for ar in arr:
         ind[-ar+4000]+=1
 # print(ind)
 max_index=max(ind)
-while True:
-    try:
-        i=ind.index(max_index)
-        ind[i]=0
+for i in range(len(ind)):
+    if max_index==ind[i]:
         if i >= 4001:
             li.append(-(i-4000))
         else:
             li.append(i)
-
-    except:
-        break
-
 # print(li)
 li.sort()
 if len(li)>1:
